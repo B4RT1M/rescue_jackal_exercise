@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Start simulating a Jackal -->
+  <include file="$(find rescue_jackal)/launch/rescue_jackal_elevation_mapping.launch"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_exploration)/rviz/jackal.rviz" />
+</launch>
