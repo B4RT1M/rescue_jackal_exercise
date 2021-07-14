@@ -61,16 +61,19 @@ def callback(msg):
         
         #define a combined cost map based height and distance cost map
         #this could be a sum or multiplication
-		# you can choose between both by commenting and uncommenting.
+	# you can choose between both by commenting and uncommenting.
         combined_cost_map = height_costmap + dist_costmap
-		# combined_cost_map = height_costmap * dist_costmap
+	# combined_cost_map = height_costmap * dist_costmap
   
 
         #implement the AStarFinder from the pathfinding package to the combined cost map
         #to find a path from the center of the image (30,30) to the upper edge of the image (30,0)
 
         #Define Grid
-        grid = Grid(combined_cost_map=combined_cost_map)
+	# ! Notice Grid expect the Keyword matrix so we need to define combined_cost_map as variable with the name matrix ! 
+	# Another to Handle this problem would be to define the variable matrix directly instead of the definition of the combined_cost_map first.
+	matrix = combined_cost_map
+        grid = Grid(matrix=matrix)
         start = grid.node(30,30)
         end = grid.node(30,0)
         #A* finder 
